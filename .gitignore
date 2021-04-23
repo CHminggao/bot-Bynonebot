@@ -3,3 +3,5 @@
 ################################################################################
 
 /WebApplication1/bin
+/WebApplication1/obj
+/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1
