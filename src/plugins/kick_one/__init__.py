@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 18:13:50
 LastEditors: GM
-LastEditTime: 2021-12-08 17:20:57
+LastEditTime: 2021-12-08 17:25:06
 Description: file content
 '''
 # import nonebot
@@ -30,7 +30,7 @@ async def kick_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
 
 @kick_one.got("someone",prompt="要踢出谁呢？")
 async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
-    msg=""
+    msg="0、退出"
     i=1
     list_user=[]
     all_list = await bot.call_api("get_group_member_list",group_id=event.group_id)
