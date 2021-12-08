@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-23 20:22:45
 LastEditors: GM
-LastEditTime: 2021-11-23 21:21:25
+LastEditTime: 2021-12-08 11:48:39
 Description: file content
 '''
 # import nonebot
@@ -22,8 +22,9 @@ tiangou=on_command("舔狗日记")
 @tiangou.handle()
 async def tiangou_command(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).strip()  # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
-    content= await data_source.selectContent(config.db_file)
-    await tiangou.finish(content)
+    if args=="":
+        content= await data_source.selectContent(config.db_file)
+        await tiangou.finish(content)
 
 
 tiangou_add=on_command("日记", permission=SUPERUSER)
