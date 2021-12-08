@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-12-08 18:15:22
 LastEditors: GM
-LastEditTime: 2021-12-08 18:44:30
+LastEditTime: 2021-12-08 18:47:36
 Description: file content
 '''
 # import nonebot
@@ -40,11 +40,10 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             qq_num=msg[0].data['qq']
             num=msg[1].data['text']
             await ____(qq_num,num,event.group_id,bot)
-    print()
 
 async def ____ (qq_num:int,num:str,group_id,bot:Bot):
     try:
-        n=int(num)
+        n=int(num)*60
     except ValueError:
         group_ban.finish("请输入正确时长")
     else:

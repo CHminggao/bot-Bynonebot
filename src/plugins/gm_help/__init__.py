@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 17:14:41
 LastEditors: GM
-LastEditTime: 2021-12-08 18:38:11
+LastEditTime: 2021-12-08 18:48:13
 Description: file content
 '''
 # import nonebot
@@ -31,4 +31,4 @@ async def help_handle(bot: Bot, event: Event, state: T_State):
     elif args=="踢出":
         await gm_help.finish("天气 群名片或昵称或qq号或@某人")
     elif args=="禁言":
-        await gm_help.finish("禁言 @某人 时长(整数)")
+        await gm_help.finish("禁言 @某人 时长(整数,单位是分钟)")
