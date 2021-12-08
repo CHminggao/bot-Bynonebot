@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 18:13:50
 LastEditors: GM
-LastEditTime: 2021-12-08 17:25:06
+LastEditTime: 2021-12-08 17:42:37
 Description: file content
 '''
 # import nonebot
@@ -30,21 +30,25 @@ async def kick_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
 
 @kick_one.got("someone",prompt="要踢出谁呢？")
 async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
-    msg="0、退出"
+    msg="0、退出\n"
     i=1
     list_user=[]
     all_list = await bot.call_api("get_group_member_list",group_id=event.group_id)
     for item in all_list:
-        if state['someone'] in item["card"] or state['someone'] in item["nickname"]:
-            msg+=str(i)+"、"+ item["card"] +"  "+ str(item['user_id'])+'\n'
+        if state['someone'] in item["card"] or state['someone'] in item["nickname"] or int(state['someone'])==item["user_id"]:
+            if item["card"]:
+                msg+=str(i)+"、"+ item["card"] +"  "+ str(item['user_id'])+'\n'
+            else:
+                msg+=str(i)+"、"+ item["nickname"] +"  "+ str(item['user_id'])+'\n'
             list_user.append(item['user_id'])
             i+=1
     if i>10:
         await kick_one.finish("查询到人数过多请重新输入")
     elif i==1:
         await kick_one.finish("没有查询到请重新输入")
-    state['somelist']=list_user
-    await kick_one.send(msg)
+    else :
+        state['somelist']=list_user
+        await kick_one.send(msg)
 
 @kick_one.got('yes')
 async def y(bot:Bot,event:GroupMessageEvent,state:T_State):
@@ -52,9 +56,10 @@ async def y(bot:Bot,event:GroupMessageEvent,state:T_State):
     try:
         i=int(str(b))
         if i==0:
-            kick_one.finish('已退出')
-        qq_num = state['somelist'][i-1]
-    except Exception:
+            await kick_one.finish('已退出')
+        else:
+            qq_num = state['somelist'][i-1]
+    except IndexError :
         await kick_one.reject("请重新输入序号")
     else:
         try:
