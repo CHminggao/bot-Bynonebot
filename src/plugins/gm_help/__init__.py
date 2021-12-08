@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 17:14:41
 LastEditors: GM
-LastEditTime: 2021-12-08 18:07:35
+LastEditTime: 2021-12-08 18:38:11
 Description: file content
 '''
 # import nonebot
@@ -21,7 +21,7 @@ gm_help=on_startswith("帮助")
 async def help_handle(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).lstrip("帮助 ")
     if args=="":
-        await gm_help.finish("当前可使用命令：\n点歌\t舔狗日记\n天气\t踢出\n查看具体命令：帮助 点歌")
+        await gm_help.finish("当前可使用命令：\n点歌\t舔狗日记\n天气\t踢出\n禁言\n查看具体命令：帮助 点歌")
     elif args=='点歌':
         await gm_help.finish("点歌 歌名")
     elif args=="舔狗日记":
@@ -29,4 +29,6 @@ async def help_handle(bot: Bot, event: Event, state: T_State):
     elif args=="天气":
         await gm_help.finish("天气 城市名称")
     elif args=="踢出":
-        await gm_help.finish("天气 群名片或昵称或qq号或@ ")
+        await gm_help.finish("天气 群名片或昵称或qq号或@某人")
+    elif args=="禁言":
+        await gm_help.finish("禁言 @某人 时长(整数)")
