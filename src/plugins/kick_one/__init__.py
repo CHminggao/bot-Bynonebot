@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 18:13:50
 LastEditors: GM
-LastEditTime: 2021-12-08 17:42:37
+LastEditTime: 2021-12-08 17:50:06
 Description: file content
 '''
 # import nonebot
@@ -34,8 +34,19 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
     i=1
     list_user=[]
     all_list = await bot.call_api("get_group_member_list",group_id=event.group_id)
+    try:
+        find=int(state['someone'])
+    except ValueError:
+        find=0
     for item in all_list:
-        if state['someone'] in item["card"] or state['someone'] in item["nickname"] or int(state['someone'])==item["user_id"]:
+        if state['someone'] in item["card"] or state['someone'] in item["nickname"]:
+            if item["card"]:
+                msg+=str(i)+"、"+ item["card"] +"  "+ str(item['user_id'])+'\n'
+            else:
+                msg+=str(i)+"、"+ item["nickname"] +"  "+ str(item['user_id'])+'\n'
+            list_user.append(item['user_id'])
+            i+=1
+        elif find>0 and find==item["user_id"] :
             if item["card"]:
                 msg+=str(i)+"、"+ item["card"] +"  "+ str(item['user_id'])+'\n'
             else:
