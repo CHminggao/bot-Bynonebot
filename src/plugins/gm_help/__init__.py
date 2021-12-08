@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 17:14:41
 LastEditors: GM
-LastEditTime: 2021-12-08 17:37:00
+LastEditTime: 2021-12-08 18:07:35
 Description: file content
 '''
 # import nonebot
@@ -29,4 +29,4 @@ async def help_handle(bot: Bot, event: Event, state: T_State):
     elif args=="天气":
         await gm_help.finish("天气 城市名称")
     elif args=="踢出":
-        await gm_help.finish("天气 群名片或昵称或qq号")
+        await gm_help.finish("天气 群名片或昵称或qq号或@ ")

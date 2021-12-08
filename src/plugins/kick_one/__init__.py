@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 18:13:50
 LastEditors: GM
-LastEditTime: 2021-12-08 17:50:06
+LastEditTime: 2021-12-08 18:05:48
 Description: file content
 '''
 # import nonebot
@@ -33,6 +33,8 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
     msg="0、退出\n"
     i=1
     list_user=[]
+    if event.get_message()[0].type=='at':
+        state['someone']=event.get_message()[0].data['qq']
     all_list = await bot.call_api("get_group_member_list",group_id=event.group_id)
     try:
         find=int(state['someone'])
