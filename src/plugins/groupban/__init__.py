@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-12-08 18:15:22
 LastEditors: GM
-LastEditTime: 2021-12-08 18:35:35
+LastEditTime: 2021-12-08 18:44:30
 Description: file content
 '''
 # import nonebot
@@ -36,7 +36,7 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
         else :
             state['soneone']=""
     elif length==2:
-        if msg[0].type=='at' and msg[0].type=='text':
+        if msg[0].type=='at' and msg[1].type=='text':
             qq_num=msg[0].data['qq']
             num=msg[1].data['text']
             await ____(qq_num,num,event.group_id,bot)
