@@ -23,5 +23,10 @@ weaterapi=""  # 和风天气key
 #智能闲聊
 tencentcloudkey1="" #腾讯id
 tencentcloudkey2="" #腾讯key
+
+#舔狗日记 sqlite数据库绝对路径
+db_file='C:/Users/Administrator/Desktop/qq_go/gm.db'
 ```
+
+
 
