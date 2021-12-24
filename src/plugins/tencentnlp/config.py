@@ -1,3 +1,10 @@
+'''
+Author: GM
+Date: 2021-12-07 16:33:42
+LastEditors: GM
+LastEditTime: 2021-12-23 17:14:37
+Description: file content
+'''
 from pydantic import BaseSettings
 
 

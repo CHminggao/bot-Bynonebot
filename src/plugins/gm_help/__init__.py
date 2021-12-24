@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 17:14:41
 LastEditors: GM
-LastEditTime: 2021-12-08 18:48:13
+LastEditTime: 2021-12-24 09:32:36
 Description: file content
 '''
 # import nonebot
@@ -25,7 +25,7 @@ async def help_handle(bot: Bot, event: Event, state: T_State):
     elif args=='点歌':
         await gm_help.finish("点歌 歌名")
     elif args=="舔狗日记":
-        await gm_help.finish("舔狗日记\n舔狗日记 新增 内容")
+        await gm_help.finish("舔狗日记")
     elif args=="天气":
         await gm_help.finish("天气 城市名称")
     elif args=="踢出":

@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-12-06 21:17:54
 LastEditors: GM
-LastEditTime: 2021-12-06 21:25:48
+LastEditTime: 2021-12-24 09:51:14
 Description: file content
 '''
 # import nonebot
@@ -18,6 +18,7 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import \
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
 from tencentcloud.nlp.v20190408 import models, nlp_client
+
 
 from .config import Config
 
@@ -42,7 +43,8 @@ async def nlp_textchat(text: str) -> Optional[str]:
     -------
     """
     try: 
-        cred = credential.Credential(global_config.tencentcloudKey1, global_config.tencentcloudKey2) 
+        
+        cred = credential.Credential(global_config.tencentcloudkey1, global_config.tencentcloudkey2) 
         httpProfile = HttpProfile()
         httpProfile.endpoint = "nlp.tencentcloudapi.com"
         

@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-23 18:28:50
 LastEditors: GM
-LastEditTime: 2021-12-06 21:24:18
+LastEditTime: 2021-12-24 10:18:50
 Description: file content
 '''
 # import nonebot
@@ -58,12 +58,12 @@ async def get_hefeng(city, citystr) -> str:
         # jstr["now"]["feelsLike"]    # 实况体感温度，默认单位：摄氏度
         # jstr["now"]["text"]         # 阴晴雨雪等天气状态的描述
         # jstr["now"]["windDir"]      # 实况风向
-        # jstr["now"]["windScale"]    # 实况风力等级
+        fl = json_str["now"]["windScale"]    # 实况风力等级
         # jstr["now"]["humidity"]     # 实况相对湿度，百分比数值
         # jstr["now"]["precip"]       # 实况降水量，默认单位：毫米
         # jstr["now"]["pressure"]     # 实况大气压强，默认单位：百帕
         # jstr["now"]["vis"]          # 实况能见度，默认单位：公里
         # jstr["now"]["cloud"]        # 实况云量，百分比数值
         # jstr["now"]["dew"]          # 实况露点温度
-        return f"{citystr}当前温度："+json_str["now"]["temp"]+"℃\n天气状况:"+json_str["now"]["text"] 
+        return f"{citystr} {json_str['now']['text']}\n当前温度：{json_str['now']['temp']}℃\n{json_str['now']['windDir']}  {json_str['now']['windScale']}级"
     return f"{citystr}天气查询失败"

@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-24 18:13:50
 LastEditors: GM
-LastEditTime: 2021-12-08 18:32:14
+LastEditTime: 2021-12-24 09:33:09
 Description: file content
 '''
 # import nonebot
@@ -74,6 +74,8 @@ async def y(bot:Bot,event:GroupMessageEvent,state:T_State):
             qq_num = state['somelist'][i-1]
     except IndexError :
         await kick_one.reject("请重新输入序号")
+    except :
+        await kick_one.finish('')
     else:
         try:
             await bot.call_api("set_group_kick",group_id=event.group_id,user_id=qq_num)

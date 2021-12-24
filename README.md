@@ -1,3 +1,4 @@
+
 # gm-bot
 
 ## How to start
@@ -20,7 +21,7 @@ DEBUG=true #正式使用这项改为false
 weaterapi=""  # 和风天气key
 
 #智能闲聊
-tencentcloudKey1="" #腾讯id
-tencentcloudKey2="" #腾讯key
+tencentcloudkey1="" #腾讯id
+tencentcloudkey2="" #腾讯key
 ```
 
