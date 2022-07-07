@@ -2,12 +2,13 @@
 Author: GM
 Date: 2021-11-23 20:22:45
 LastEditors: GM
-LastEditTime: 2021-12-24 10:52:15
+LastEditTime: 2022-07-07 11:35:01
 Description: file content
 '''
 # import nonebot
 from nonebot import get_driver
 import sqlite3
+from httpx import get
 from .config import Config
 from nonebot import on_command
 from nonebot.typing import T_State
@@ -23,12 +24,17 @@ tiangou=on_command("舔狗日记")
 async def tiangou_command(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).strip()  # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
     if args=="":
-        content= await data_source.selectContent(global_config.db_file)
-        await tiangou.finish(content)
+        msg=await useApi()
+        await tiangou.finish(msg)
+        #content= await data_source.selectContent(global_config.db_file)
+        #await tiangou.finish(content)
 
+async def useApi()->str:
+    r = get(f'https://api.oick.cn/dog/api.php').text
+    r=r.strip('"')
 
-tiangou_add=on_command("日记", permission=SUPERUSER)
-@tiangou_add.handle()
+#tiangou_add=on_command("日记", permission=SUPERUSER)
+#@tiangou_add.handle()
 async def tiangouadd_command(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).strip()  # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
     if args:
