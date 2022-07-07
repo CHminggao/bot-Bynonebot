@@ -2,7 +2,7 @@
 Author: GM
 Date: 2021-11-23 20:22:45
 LastEditors: GM
-LastEditTime: 2022-07-07 11:35:01
+LastEditTime: 2022-07-07 11:56:52
 Description: file content
 '''
 # import nonebot
@@ -32,6 +32,7 @@ async def tiangou_command(bot: Bot, event: Event, state: T_State):
 async def useApi()->str:
     r = get(f'https://api.oick.cn/dog/api.php').text
     r=r.strip('"')
+    return r
 
 #tiangou_add=on_command("日记", permission=SUPERUSER)
 #@tiangou_add.handle()
